@@ -46,7 +46,7 @@ public class ChatEventHandler{
                 }
                 if(text.charAt(0) == '<' && text.charAt(text.length() - 1) == '>') {
                     TranslationTextComponent translationTextComponent;
-
+                    String name = text.substring(1, text.length() - 1);
                     if(textComponent.getStyle().getColor()!=null){
                         text=TextFormatting.getValueByName(textComponent.getStyle().getColor().getName())+text;
                         text=TextFormatting.BOLD+text;
@@ -58,7 +58,6 @@ public class ChatEventHandler{
                         translationTextComponent= new TranslationTextComponent((TextFormatting.getValueByName(ChatDisplayConfig.TimestampColor.get())+getDate())+text);
                     }
                     else translationTextComponent= new TranslationTextComponent(text);
-                    String name = text.substring(1, text.length() - 1);
                     if (translationTextComponent.getStyle().getClickEvent() == null) {
                         translationTextComponent.setStyle(translationTextComponent.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tell " + name)));
                     }
