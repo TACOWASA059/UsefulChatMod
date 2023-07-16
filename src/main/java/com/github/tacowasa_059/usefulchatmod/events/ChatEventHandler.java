@@ -50,6 +50,9 @@ public class ChatEventHandler{
                     if(textComponent.getStyle().getColor()!=null){
                         text=TextFormatting.getValueByName(textComponent.getStyle().getColor().getName())+text;
                         text=TextFormatting.BOLD+text;
+                    }else{
+                        text=TextFormatting.WHITE+text;
+                        text=TextFormatting.BOLD+text;
                     }
                     if(ChatDisplayConfig.displayTimestamp.get()){
                         translationTextComponent= new TranslationTextComponent((TextFormatting.getValueByName(ChatDisplayConfig.TimestampColor.get())+getDate())+text);
