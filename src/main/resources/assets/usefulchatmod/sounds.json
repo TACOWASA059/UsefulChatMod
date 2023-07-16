@@ -1,0 +1,11 @@
+{
+  "notification": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "usefulchatmod:notification",
+        "stream": false
+      }
+    ]
+  }
+}

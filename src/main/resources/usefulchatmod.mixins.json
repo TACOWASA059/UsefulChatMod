@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.tacowasa_059.usefulchatmod.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "usefulchatmod.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "MixinChatGUI"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

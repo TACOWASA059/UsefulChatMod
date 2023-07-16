@@ -1,0 +1,15 @@
+{
+  "usefulchatmod.message.display.incoming": " whispers to you:",
+  "usefulchatmod.category.all": "     all     ",
+  "usefulchatmod.category.at": "     [@]     ",
+  "usefulchatmod.configGui.title": "Config for useful chat mod",
+  "usefulchatmod.config.gui.done": "done",
+  "key.usefulchatmod.setting": "mod setting",
+  "key.category.usefulchatmod": "useful chat mod",
+  "usefulchatmod.config.DisplayTimestamp": "Whether to add a timestamp",
+  "usefulchatmod.config.Timestamp_Format": "Timestamp Format",
+  "usefulchatmod.config.Timestamp_Color": "Timestamp Color",
+  "usefulchatmod.config.chatColor": "chat color",
+  "usefulchatmod.config.tellColor": "tell color",
+  "usefulchatmod.config.copy_chat": "Enable click to copy chat"
+}

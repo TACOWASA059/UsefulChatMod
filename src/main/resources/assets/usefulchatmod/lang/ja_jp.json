@@ -1,0 +1,15 @@
+{
+  "usefulchatmod.message.display.incoming": "にささやかれました:",
+  "usefulchatmod.category.all": " 全体チャット ",
+  "usefulchatmod.category.at": " 個人チャット ",
+  "usefulchatmod.configGui.title": "useful chat mod コンフィグ設定",
+  "usefulchatmod.config.gui.done": "完了",
+  "key.usefulchatmod.setting": "mod 設定",
+  "key.category.usefulchatmod": "useful chat mod",
+  "usefulchatmod.config.DisplayTimestamp": "タイムスタンプを追加",
+  "usefulchatmod.config.Timestamp_Format": "タイムスタンプ形式",
+  "usefulchatmod.config.Timestamp_Color": "タイムスタンプカラー",
+  "usefulchatmod.config.chatColor": "チャット表示色",
+  "usefulchatmod.config.tellColor": "/tell表示色",
+  "usefulchatmod.config.copy_chat": "クリックでチャットをコピー"
+}
