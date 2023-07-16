@@ -9,8 +9,8 @@
 - tellのみが表示されるチャット欄の追加
 - F9でコンフィグを開く
 
- ![image](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/716be7a4-8239-4ccd-b0f3-59cebbf39eb9)
+![image](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/18688fe7-b2b3-469b-a0a4-90fd875c3294)
 
-![image](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/84de0ace-508f-4981-92c3-ee0c7a6c2443)
+![image](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/c2309d70-e0de-4561-ada6-6946237170da)
 
-![2023-07-16_13 41 52](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/69469d06-2d06-4f84-a5eb-e95af63a6f26)
+![2023-07-16_13 41 52](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/bc8df09b-adb6-4edc-a821-998920402237)
