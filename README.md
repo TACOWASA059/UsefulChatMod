@@ -3,7 +3,8 @@
 
 ## 機能
 - チャットのタイムスタンプの表示
-- チャットをクリックでコピー
+- チャットをクリックで入力欄にテキストを追加
+- チャットをshift+クリックでクリップボードにコピー
 - チャット、/tellそれぞれで表示色を指定
 - tellに通知音を追加
 - tellのみが表示されるチャット欄の追加
@@ -13,4 +14,5 @@
 
 ![image](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/c2309d70-e0de-4561-ada6-6946237170da)
 
-![2023-07-16_13 41 52](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/bc8df09b-adb6-4edc-a821-998920402237)
+![スクリーンショット 2023-07-17 104714](https://github.com/TACOWASA059/UsefulChatMod/assets/115648249/f028cf8c-0408-4905-a4ed-5343e902f78c)
+
