@@ -4,6 +4,7 @@ import com.github.tacowasa_059.usefulchatmod.Useful_chat_mod;
 import com.github.tacowasa_059.usefulchatmod.config.ConfigScreen;
 import com.github.tacowasa_059.usefulchatmod.keybind.KeyManager;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.event.TickEvent;

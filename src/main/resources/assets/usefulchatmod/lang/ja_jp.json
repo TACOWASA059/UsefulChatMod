@@ -11,5 +11,7 @@
   "usefulchatmod.config.Timestamp_Color": "タイムスタンプカラー",
   "usefulchatmod.config.chatColor": "チャット表示色",
   "usefulchatmod.config.tellColor": "/tell表示色",
-  "usefulchatmod.config.copy_chat": "クリックでチャットをコピー"
+  "usefulchatmod.config.copy_chat": "クリックでチャットをコピー",
+  "usefulchatmod.config.debug_output": "デバック用のlogファイル出力を有効化",
+  "usefulchatmod.config.enablebutton": "全体と個人チャットを切り替えるボタンを追加"
 }

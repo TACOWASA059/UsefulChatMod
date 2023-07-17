@@ -121,6 +121,23 @@ public final class ConfigScreen extends Screen {
                 )
 
         );
+        this.optionsRowList.addOption(new BooleanOption(
+                        "usefulchatmod.config.enablebutton",
+                        // GameSettings argument unused for both getter and setter
+                        unused -> ChatDisplayConfig.enableSwitchButton.get(),
+                        (unused, newValue) -> ChatDisplayConfig.enableSwitchButton.set(newValue)
+                )
+
+        );
+        this.optionsRowList.addOption(new BooleanOption(
+                "usefulchatmod.config.debug_output",
+                        // GameSettings argument unused for both getter and setter
+                        unused -> ChatDisplayConfig.debugoutput.get(),
+                        (unused, newValue) -> ChatDisplayConfig.debugoutput.set(newValue)
+                )
+
+        );
+
 
 
         this.children.add(this.optionsRowList);

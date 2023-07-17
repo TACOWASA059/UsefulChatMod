@@ -1,5 +1,6 @@
 package com.github.tacowasa_059.usefulchatmod.mixin;
 
+import com.github.tacowasa_059.usefulchatmod.config.ChatDisplayConfig;
 import com.github.tacowasa_059.usefulchatmod.events.RenderGUIEvents;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -65,29 +66,30 @@ public class MixinChatGUI extends AbstractGui {
         double lvt_15_1_ = -8.0 * (mc.gameSettings.chatLineSpacing + 1.0) + 4.0 * mc.gameSettings.chatLineSpacing;
         int lvt_23_2_ = (int)(255.0  * lvt_9_1_);
         int lvt_24_2_ = (int)(255.0* lvt_11_1_);
+        if(ChatDisplayConfig.enableSwitchButton.get()){
+            p_238492_1_.push();
+            //横・縦の順
+            String text1=TextFormatting.BOLD+ I18n.format("usefulchatmod.category.all");
+            String text2=TextFormatting.BOLD+I18n.format("usefulchatmod.category.at");
 
-        p_238492_1_.push();
-        //横・縦の順
-        String text1=TextFormatting.BOLD+ I18n.format("usefulchatmod.category.all");
-        String text2=TextFormatting.BOLD+I18n.format("usefulchatmod.category.at");
+            if( RenderGUIEvents.allChat)text1=TextFormatting.UNDERLINE+text1;
+            else text2=TextFormatting.UNDERLINE+text2;
 
-        if( RenderGUIEvents.allChat)text1=TextFormatting.UNDERLINE+text1;
-        else text2=TextFormatting.UNDERLINE+text2;
-
-        int width1= mc.fontRenderer.getStringWidth(text1);
-        int width2= mc.fontRenderer.getStringWidth(text2);
-        int height= mc.fontRenderer.FONT_HEIGHT+2;
-        int f1= RenderGUIEvents.allChat?lvt_24_2_ << 24:0xFF696969;
-        int f2= RenderGUIEvents.allChat?0xFF696969:lvt_24_2_ << 24;
-        fill(p_238492_1_, 0, (int)(lvt_13_1_), 2+width1, (int)(lvt_13_1_)+height, f1);
-        fill(p_238492_1_, 2+width1, (int)(lvt_13_1_), 2+width1+2+width2, (int)(  lvt_13_1_)+height, f2);
-        RenderSystem.enableBlend();
-        //横・縦の順
-        mc.fontRenderer.drawTextWithShadow(p_238492_1_, new TranslationTextComponent(text1), 2F, (float)((int)(lvt_15_1_+2*  lvt_13_1_)), 16777215 + (lvt_23_2_ << 24));
-        mc.fontRenderer.drawTextWithShadow(p_238492_1_, new TranslationTextComponent(text2), 2F+2+width1, (float)((int)(lvt_15_1_+2*  lvt_13_1_)), 16777215 + (lvt_23_2_ << 24));
-        RenderSystem.disableAlphaTest();
-        RenderSystem.disableBlend();
-        p_238492_1_.pop();
+            int width1= mc.fontRenderer.getStringWidth(text1);
+            int width2= mc.fontRenderer.getStringWidth(text2);
+            int height= mc.fontRenderer.FONT_HEIGHT+2;
+            int f1= RenderGUIEvents.allChat?lvt_24_2_ << 24:0xFF696969;
+            int f2= RenderGUIEvents.allChat?0xFF696969:lvt_24_2_ << 24;
+            fill(p_238492_1_, 0, (int)(lvt_13_1_), 2+width1, (int)(lvt_13_1_)+height, f1);
+            fill(p_238492_1_, 2+width1, (int)(lvt_13_1_), 2+width1+2+width2, (int)(  lvt_13_1_)+height, f2);
+            RenderSystem.enableBlend();
+            //横・縦の順
+            mc.fontRenderer.drawTextWithShadow(p_238492_1_, new TranslationTextComponent(text1), 2F, (float)((int)(lvt_15_1_+2*  lvt_13_1_)), 16777215 + (lvt_23_2_ << 24));
+            mc.fontRenderer.drawTextWithShadow(p_238492_1_, new TranslationTextComponent(text2), 2F+2+width1, (float)((int)(lvt_15_1_+2*  lvt_13_1_)), 16777215 + (lvt_23_2_ << 24));
+            RenderSystem.disableAlphaTest();
+            RenderSystem.disableBlend();
+            p_238492_1_.pop();
+        }
     }
 
 

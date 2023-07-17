@@ -26,12 +26,12 @@ public class ChatEventHandler{
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onChatReceived(ClientChatReceivedEvent event) {
-        System.out.println(event.getMessage());
+        if(ChatDisplayConfig.debugoutput.get())System.out.println(event.getMessage());
         if (event.getType() == ChatType.CHAT) {//chatのとき
             ITextComponent component=event.getMessage().deepCopy();
             if (component instanceof TranslationTextComponent) {
                 component=modify_itextComponent(component, Color.fromTextFormatting(TextFormatting.getValueByName(ChatDisplayConfig.chatColor.get())), ChatDisplayConfig.displayTimestamp.get(),true);
-                System.out.println(component);
+                if(ChatDisplayConfig.debugoutput.get())System.out.println(component);
                 event.setMessage(component);
             }
             else if(component instanceof TextComponent){//プラグイン出力の場合
@@ -40,6 +40,7 @@ public class ChatEventHandler{
                 if(textComponent.getSiblings().size()==0)return;
 
                 String text2=textComponent.getSiblings().get(0).getUnformattedComponentText();
+                if(text.length()==0)return;
                 if(text.charAt(0) == '<' && text2.charAt(0) == '>') {
                     text += ">";
                     text2 = text2.substring(1);
@@ -64,26 +65,26 @@ public class ChatEventHandler{
                     TranslationTextComponent translationTextComponent1 = new TranslationTextComponent(text2);
                     translationTextComponent1.setStyle(textComponent.getSiblings().get(0).getStyle());
                     translationTextComponent1.setStyle(translationTextComponent1.getStyle().setColor(Color.fromTextFormatting(TextFormatting.getValueByName(ChatDisplayConfig.chatColor.get()))).setBold(false));
-                    if(ChatDisplayConfig.enableCopy.get()) translationTextComponent1.setStyle(translationTextComponent1.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text2.trim())).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent(text2.trim()))));
+                    translationTextComponent1.setStyle(translationTextComponent1.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text2.trim())).setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent(text2.trim()))));
                     //第3階層以降はそのまま入れる
                     for (ITextComponent iTextComponent : textComponent.getSiblings().get(0).getSiblings()) {
                         translationTextComponent1.appendSibling(iTextComponent);
                     }
                     translationTextComponent.appendSibling(translationTextComponent1);
                     event.setMessage(translationTextComponent);
-                    System.out.println(event.getMessage());
+                    if(ChatDisplayConfig.debugoutput.get())System.out.println(event.getMessage());
                 }
             }
         }
 
         else if(event.getType()==ChatType.SYSTEM){//tellなど
             ITextComponent component=event.getMessage().deepCopy();
-            System.out.println(component.getString());
+            if(ChatDisplayConfig.debugoutput.get())System.out.println(component.getString());
 
             if (component instanceof TranslationTextComponent) {//tellrawをはじく
                 TranslationTextComponent translationComponent = (TranslationTextComponent) component;
                 if(translationComponent.getKey().equals("commands.message.display.outgoing")){
-                    Chatgui.func_238493_a_(event.getMessage(),0,0,true);
+                    Chatgui.func_238493_a_(event.getMessage(),0,Minecraft.getInstance().ingameGUI.getTicks(),false);
                 }
                 if (translationComponent.getKey().equals("commands.message.display.incoming")) {//messageが送られてくるときのみ
                     try {
@@ -92,10 +93,10 @@ public class ChatEventHandler{
                     } catch (ClassCastException e) {
                         component = event.getMessage().deepCopy();
                     }
-                    System.out.println(component);
+                    if(ChatDisplayConfig.debugoutput.get())System.out.println(component);
 
                     event.setMessage(component);
-                    Chatgui.func_238493_a_(event.getMessage(),0,0,true);
+                    Chatgui.func_238493_a_(event.getMessage(),0,Minecraft.getInstance().ingameGUI.getTicks(),false);
                 }
             }
         }
@@ -158,7 +159,7 @@ public class ChatEventHandler{
                     translationTextComponent.appendSibling(translationTextComponent1);
                 }
                 else{
-                    System.out.println(translationComponent.getFormatArgs()[1]);
+                    if(ChatDisplayConfig.debugoutput.get())System.out.println(translationComponent.getFormatArgs()[1]);
                     translationTextComponent.appendSibling((ITextComponent) translationComponent.getFormatArgs()[1]);
                 }
                 return translationTextComponent;
@@ -183,9 +184,9 @@ public class ChatEventHandler{
     private static void  SetText(TranslationTextComponent translationTextComponent,ITextComponent Arg,Color textcolor){
         String text= Arg.getUnformattedComponentText();//参照元のテキスト
         if(Arg.getStyle().getClickEvent()==null){
-            if(ChatDisplayConfig.enableCopy.get())translationTextComponent.setStyle(translationTextComponent.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD,text.trim())));
+            translationTextComponent.setStyle(translationTextComponent.getStyle().setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD,text.trim())));
             if(Arg.getStyle().getHoverEvent()==null){//hover_eventも定義されていないとき
-                if(ChatDisplayConfig.enableCopy.get())translationTextComponent.setStyle(translationTextComponent.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new TranslationTextComponent(text.trim()))));
+                translationTextComponent.setStyle(translationTextComponent.getStyle().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new TranslationTextComponent(text.trim()))));
             }else{
                 translationTextComponent.setStyle(translationTextComponent.getStyle().setHoverEvent(Arg.getStyle().getHoverEvent()));
             }

@@ -1,6 +1,7 @@
 package com.github.tacowasa_059.usefulchatmod.events;
 
 import com.github.tacowasa_059.usefulchatmod.Useful_chat_mod;
+import com.github.tacowasa_059.usefulchatmod.config.ChatDisplayConfig;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.brigadier.suggestion.Suggestion;
 import net.minecraft.client.Minecraft;
@@ -35,6 +36,7 @@ public class RenderGUIEvents {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void onMouseClickEvent(GuiScreenEvent.MouseClickedEvent event) {
+        if(!ChatDisplayConfig.enableSwitchButton.get())return;
         double mouseX=event.getMouseX();
         double mouseY=event.getMouseY();
         Minecraft mc=Minecraft.getInstance();
@@ -62,9 +64,10 @@ public class RenderGUIEvents {
     }
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
-    public static void onMouseScrollEvent(GuiOpenEvent event) {
+    public static void onGUIOpenEvent(GuiOpenEvent event) {
         if(event.getGui() instanceof ChatScreen){
             Chatgui.resetScroll();
+            allChat=true;
         }
     }
 }

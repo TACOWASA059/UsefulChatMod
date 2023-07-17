@@ -11,5 +11,7 @@
   "usefulchatmod.config.Timestamp_Color": "Timestamp Color",
   "usefulchatmod.config.chatColor": "chat color",
   "usefulchatmod.config.tellColor": "tell color",
-  "usefulchatmod.config.copy_chat": "Enable click to copy chat"
+  "usefulchatmod.config.copy_chat": "Enable click to copy chat",
+  "usefulchatmod.config.debug_output": "Enable output to chat log file for debug",
+  "usefulchatmod.config.enablebutton": "Enable button to switch between whole and individual"
 }

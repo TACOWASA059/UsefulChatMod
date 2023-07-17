@@ -16,6 +16,10 @@ public class ChatDisplayConfig {
     public static  ForgeConfigSpec.ConfigValue<String> tellColor;
     public static  ForgeConfigSpec.ConfigValue<Boolean> enableCopy;
 
+    public static ForgeConfigSpec.ConfigValue<Boolean> debugoutput;
+
+    public static ForgeConfigSpec.ConfigValue<Boolean> enableSwitchButton;
+
     public static  final Boolean defaultdisplayTimestamp=true;
     public static  final String defaultTimestampFormat="HH:mm:ss";
     public static  final String defaultTimestampColor=TextFormatting.GRAY.getFriendlyName();
@@ -23,6 +27,10 @@ public class ChatDisplayConfig {
     public static  final String defaultchatColor=TextFormatting.GREEN.getFriendlyName();
     public static  final String defaulttellColor=TextFormatting.RED.getFriendlyName();
     public static  final Boolean defaultenableCopy=true;
+
+    public static  final Boolean defaultdebugoutput=false;
+
+    public static final Boolean defaultenableSwitchButton=true;
     static {
         buider.push("Config for useful_chat_mod");
         displayTimestamp=buider.comment("Whether to add a timestamp").define("DisplayTimestamp",defaultdisplayTimestamp);
@@ -31,6 +39,8 @@ public class ChatDisplayConfig {
         chatColor=buider.comment("chat color").define("chat_color",defaultchatColor);
         tellColor=buider.comment("tell color").define("tell_color",defaulttellColor);
         enableCopy=buider.comment("Enable click to copy chat").define("copy_chat",defaultenableCopy);
+        debugoutput=buider.comment("Output to chat log file for debug").define("debug_output",defaultdebugoutput);
+        enableSwitchButton=buider.comment("Enable button to switch between whole and individual").define("enablebutton",defaultenableSwitchButton);
 
         buider.pop();
         spec= buider.build();
